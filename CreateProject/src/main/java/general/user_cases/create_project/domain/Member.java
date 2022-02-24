@@ -63,6 +63,6 @@ public class Member implements Entity<MemberId> {
     public String toString() {
         return "Member id : " + memberId.toString() + " \n" +
                 "Name : " + name + " \n" +
-                "Company \n: " + company.toString() + " \n";
+                "Company : \n" + company.toString() + " \n";
     }
 }

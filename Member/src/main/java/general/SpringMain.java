@@ -1,11 +1,11 @@
 package general;
 
-import general.user_cases.create_project.domain.*;
+import general.user_cases.member.domain.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import general.user_cases.create_project.application.ApplyForMembership;
-import general.user_cases.create_project.application.ApplyForMembershipCommandHandler;
+import general.user_cases.member.application.ApplyForMembership;
+import general.user_cases.member.application.ApplyForMembershipCommandHandler;
 
 @SpringBootApplication
 public class SpringMain {

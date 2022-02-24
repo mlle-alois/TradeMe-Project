@@ -2,7 +2,8 @@ package general.user_cases.create_project.exposition;
 
 import general.kernel.CommandBus;
 import general.user_cases.create_project.application.ApplyForMembership;
-import general.user_cases.create_project.domain.*;
+import general.user_cases.create_project.domain.Company;
+import general.user_cases.create_project.domain.Subscription;
 import general.user_cases.create_project.domain.valueObjects.CompanyId;
 import general.user_cases.create_project.domain.valueObjects.MemberId;
 import general.user_cases.create_project.domain.valueObjects.MemberName;

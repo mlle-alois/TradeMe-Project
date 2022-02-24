@@ -1,17 +1,17 @@
 package general;
 
 import general.kernel.*;
-import general.user_cases.create_project.domain.PaymentRepository;
-import general.user_cases.create_project.infrastructure.InMemoryPaymentRepository;
+import general.user_cases.member.domain.PaymentRepository;
+import general.user_cases.member.infrastructure.InMemoryPaymentRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import general.user_cases.create_project.application.ApplyForMembership;
-import general.user_cases.create_project.application.ApplyForMembershipCommandHandler;
-import general.user_cases.create_project.application.ApplyForMembershipEvent;
-import general.user_cases.create_project.application.ApplyForMembershipEventListener;
-import general.user_cases.create_project.domain.MemberRepository;
-import general.user_cases.create_project.infrastructure.DefaultEventDispatcher;
-import general.user_cases.create_project.infrastructure.InMemoryMemberRepository;
+import general.user_cases.member.application.ApplyForMembership;
+import general.user_cases.member.application.ApplyForMembershipCommandHandler;
+import general.user_cases.member.application.ApplyForMembershipEvent;
+import general.user_cases.member.application.ApplyForMembershipEventListener;
+import general.user_cases.member.domain.MemberRepository;
+import general.user_cases.member.infrastructure.DefaultEventDispatcher;
+import general.user_cases.member.infrastructure.InMemoryMemberRepository;
 
 import java.util.HashMap;
 import java.util.List;

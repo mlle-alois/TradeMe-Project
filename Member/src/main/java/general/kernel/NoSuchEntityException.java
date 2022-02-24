@@ -1,9 +1,9 @@
 package general.kernel;
 
-import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.LogId;
-import general.user_cases.create_project.domain.MemberId;
-import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
+import general.user_cases.member.domain.Log;
+import general.user_cases.member.domain.LogId;
+import general.user_cases.member.domain.MemberId;
+import general.user_cases.member.infrastructure.InMemoryLogRepository;
 
 public final class NoSuchEntityException extends RuntimeException {
     private static final String messageStart = "No entity found with ID %d." ;

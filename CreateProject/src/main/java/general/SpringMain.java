@@ -2,7 +2,8 @@ package general;
 
 import general.user_cases.create_project.application.ApplyForMembership;
 import general.user_cases.create_project.application.ApplyForMembershipCommandHandler;
-import general.user_cases.create_project.domain.*;
+import general.user_cases.create_project.domain.Company;
+import general.user_cases.create_project.domain.Subscription;
 import general.user_cases.create_project.domain.enums.MemberShipType;
 import general.user_cases.create_project.domain.enums.PaymentContextType;
 import general.user_cases.create_project.domain.valueObjects.CompanyId;

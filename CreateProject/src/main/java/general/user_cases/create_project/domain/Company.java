@@ -1,8 +1,8 @@
 package general.user_cases.create_project.domain;
 
 public final class Company {
-   private String name;
-   private CompanyId id;
+    private String name;
+    private CompanyId id;
 
     public Company(String name, CompanyId id) {
         this.name = name;

@@ -10,7 +10,7 @@ public final class ApplyForMembershipCommandHandler implements CommandHandler<Ap
     private final PaymentRepository paymentRepository;
     private final EventDispatcher<Event> eventEventDispatcher;
 
-    public ApplyForMembershipCommandHandler(MemberRepository memberRepository,PaymentRepository paymentRepository, EventDispatcher<Event> eventEventDispatcher) {
+    public ApplyForMembershipCommandHandler(MemberRepository memberRepository, PaymentRepository paymentRepository, EventDispatcher<Event> eventEventDispatcher) {
         this.memberRepository = memberRepository;
         this.eventEventDispatcher = eventEventDispatcher;
         this.paymentRepository = paymentRepository;
@@ -19,10 +19,10 @@ public final class ApplyForMembershipCommandHandler implements CommandHandler<Ap
     @Override
     public MemberId handle(ApplyForMembership applyForMembership) {
         final MemberId memberId = memberRepository.nextIdentity();
-        Member member = new Member(memberId, applyForMembership.name,applyForMembership.company, applyForMembership.subscription);
+        Member member = new Member(memberId, applyForMembership.name, applyForMembership.company, applyForMembership.subscription);
 
         final PaymentId paymentId = paymentRepository.nextIdentity();
-        Payment payment = new Payment(paymentId,applyForMembership.subscription.getAmount(),member);
+        Payment payment = new Payment(paymentId, applyForMembership.subscription.getAmount(), member);
 
         PaymentContext paymentContext = new PaymentContext(applyForMembership.PaymentType);
         paymentContext.pay(payment);

@@ -2,11 +2,12 @@ package general.user_cases.create_project.domain;
 
 public enum MemberShipType {
 
-   annual("annual");
+    annual("annual");
 
     private String value;
+
     MemberShipType(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {

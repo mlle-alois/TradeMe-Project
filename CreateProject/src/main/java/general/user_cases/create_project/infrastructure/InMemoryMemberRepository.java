@@ -1,6 +1,6 @@
 package general.user_cases.create_project.infrastructure;
 
-import general.kernel.NoSuchEntityException;
+import general.kernel.exception.NoSuchEntityException;
 import general.user_cases.create_project.domain.Member;
 import general.user_cases.create_project.domain.MemberId;
 import general.user_cases.create_project.domain.MemberRepository;
@@ -18,7 +18,7 @@ public class InMemoryMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
-       return List.copyOf(data.values());
+        return List.copyOf(data.values());
     }
 
     @Override
@@ -37,7 +37,7 @@ public class InMemoryMemberRepository implements MemberRepository {
 
     @Override
     public void add(Member member) {
-        data.put(member.id(),member);
+        data.put(member.id(), member);
     }
 
     @Override

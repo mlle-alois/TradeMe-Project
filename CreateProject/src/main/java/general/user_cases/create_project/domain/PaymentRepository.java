@@ -4,6 +4,6 @@ import general.kernel.Repository;
 
 import java.util.List;
 
-public interface PaymentRepository extends Repository<PaymentId,Payment> {
+public interface PaymentRepository extends Repository<PaymentId, Payment> {
     List<Payment> findAll();
 }

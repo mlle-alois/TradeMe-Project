@@ -18,7 +18,7 @@ public class DefaultEventDispatcher<E extends Event> implements EventDispatcher<
     @Override
     public void dispatch(E event) {
         final List<EventListener<E>> eventListeners = eventListenersMap.get(event.getClass());
-        if (eventListeners!=null){
+        if (eventListeners != null) {
             eventListeners.forEach(eEventListener -> eEventListener.listenTo(event));
         }
     }

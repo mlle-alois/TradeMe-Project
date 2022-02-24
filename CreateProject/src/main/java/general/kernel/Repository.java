@@ -1,5 +1,7 @@
 package general.kernel;
 
+import general.kernel.exception.NoSuchEntityException;
+
 public interface Repository<VOID, E> {
     VOID nextIdentity();
 

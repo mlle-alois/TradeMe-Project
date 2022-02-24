@@ -39,16 +39,15 @@ public class CreateProjectConfiguration {
 
     @Bean
     public ApplyForMembershipCommandHandler applyForMembershipCommandHandler() {
-        return new ApplyForMembershipCommandHandler(memberRepository(),paymentRepository(),eventEventDispatcher());
+        return new ApplyForMembershipCommandHandler(memberRepository(), paymentRepository(), eventEventDispatcher());
     }
 
     @Bean
     public CommandBus commandBus() {
         final Map<Class<? extends Command>, CommandHandler> commandHandlerMap = new HashMap<>();
-        commandHandlerMap.put(ApplyForMembership.class, new ApplyForMembershipCommandHandler(memberRepository(),paymentRepository(), eventEventDispatcher()));
+        commandHandlerMap.put(ApplyForMembership.class, new ApplyForMembershipCommandHandler(memberRepository(), paymentRepository(), eventEventDispatcher()));
         return new SimpleCommandBus(commandHandlerMap);
     }
-
 
 
 }

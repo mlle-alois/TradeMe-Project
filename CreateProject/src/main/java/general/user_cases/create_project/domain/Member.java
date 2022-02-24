@@ -11,7 +11,7 @@ public final class Member implements Entity<MemberId> {
     private Subscription subscription;
 
 
-    public Member(MemberId memberId,MemberName name, Company company, Subscription subscription) {
+    public Member(MemberId memberId, MemberName name, Company company, Subscription subscription) {
         this.memberId = memberId;
         this.name = name;
         this.company = company;

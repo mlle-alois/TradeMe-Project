@@ -28,7 +28,7 @@ public class MemberController {
 
     @PostMapping(path = members, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid MemberRequest request) {
-        ApplyForMembership applyForMembership = new ApplyForMembership(new MemberName(request.memberName), new Company(request.company.name,new CompanyId(request.company.id)), new Subscription(request.memberShipType), request.paymentType);
+        ApplyForMembership applyForMembership = new ApplyForMembership(new MemberName(request.memberName), new Company(request.company.name, new CompanyId(request.company.id)), new Subscription(request.memberShipType), request.paymentType);
         MemberId memberId = commandBus.send(applyForMembership);
         return ResponseEntity.created(URI.create(members + memberId.getValue())).build();
     }

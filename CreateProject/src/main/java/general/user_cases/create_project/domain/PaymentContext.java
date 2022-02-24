@@ -9,7 +9,7 @@ public class PaymentContext {
     private PaymentStategy paymentStategy;
 
     public PaymentContext(String paymentStategy) {
-        if(Objects.equals(paymentStategy, PaymentContextType.masterCard.getValue())) {
+        if (Objects.equals(paymentStategy, PaymentContextType.masterCard.getValue())) {
             this.paymentStategy = new PaymentMasterCard();
             return;
         }
@@ -20,7 +20,7 @@ public class PaymentContext {
         this.paymentStategy = paymentStategy;
     }
 
-    public void pay(Payment payment){
+    public void pay(Payment payment) {
         this.paymentStategy.pay(payment);
     }
 }

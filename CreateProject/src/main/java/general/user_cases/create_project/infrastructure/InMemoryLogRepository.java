@@ -1,7 +1,7 @@
 package general.user_cases.create_project.infrastructure;
 
-import general.kernel.NoSuchEntityException;
-import general.kernel.NoSuchLogException;
+import general.kernel.exception.NoSuchEntityException;
+import general.kernel.exception.NoSuchLogException;
 import general.user_cases.create_project.domain.Log;
 import general.user_cases.create_project.domain.LogId;
 import general.user_cases.create_project.domain.LogRepository;
@@ -20,7 +20,7 @@ public class InMemoryLogRepository implements LogRepository {
 
     @Override
     public LogId nextIdentity() {
-         return new LogId(count.incrementAndGet());
+        return new LogId(count.incrementAndGet());
     }
 
     @Override
@@ -34,7 +34,7 @@ public class InMemoryLogRepository implements LogRepository {
 
     @Override
     public void add(Log entity) {
-        data.put(entity.id(),entity);
+        data.put(entity.id(), entity);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class InMemoryLogRepository implements LogRepository {
         data.remove(id);
     }
 
-    public static InMemoryLogRepository getInstance(){
+    public static InMemoryLogRepository getInstance() {
         return single_instance;
     }
 

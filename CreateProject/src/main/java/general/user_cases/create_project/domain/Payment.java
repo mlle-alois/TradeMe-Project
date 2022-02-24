@@ -7,7 +7,7 @@ public class Payment implements Entity<PaymentId> {
     private Amount amount;
     private Member member;
 
-    public Payment(PaymentId paymentId,Amount amount, Member member) {
+    public Payment(PaymentId paymentId, Amount amount, Member member) {
         this.amount = amount;
         this.member = member;
         this.paymentId = paymentId;

@@ -1,7 +1,7 @@
 package general.user_cases.create_project.infrastructure;
 
-import general.kernel.NoSuchEntityException;
-import general.kernel.NoSuchPaymentException;
+import general.kernel.exception.NoSuchEntityException;
+import general.kernel.exception.NoSuchPaymentException;
 import general.user_cases.create_project.domain.Payment;
 import general.user_cases.create_project.domain.PaymentId;
 import general.user_cases.create_project.domain.PaymentRepository;
@@ -33,7 +33,7 @@ public class InMemoryPaymentRepository implements PaymentRepository {
 
     @Override
     public void add(Payment payment) {
-        data.put(payment.id(),payment);
+        data.put(payment.id(), payment);
     }
 
     @Override

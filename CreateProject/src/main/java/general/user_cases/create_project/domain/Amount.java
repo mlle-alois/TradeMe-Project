@@ -8,10 +8,10 @@ public final class Amount {
     private String currency;
 
     public Amount(double amount, String currency) {
-        if(amount<0){
+        if (amount < 0) {
             throw NegativeAmount.WithLog(amount);
         }
-        if(currency.equals("")){
+        if (currency.equals("")) {
             throw NoCurrencyForAmount.WithLog(amount);
         }
 
@@ -22,6 +22,7 @@ public final class Amount {
     public double getAmount() {
         return amount;
     }
+
     public String getCurrency() {
         return currency;
     }

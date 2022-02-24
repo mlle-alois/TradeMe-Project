@@ -8,21 +8,21 @@ public class Subscription {
 
     private Amount amount;
 
-    public Subscription (String name) {
-     if(Objects.equals(name, MemberShipType.annual.getValue())){
-         this.amount = new Amount(300.0,"$");
-         return;
-     }
+    public Subscription(String name) {
+        if (Objects.equals(name, MemberShipType.annual.getValue())) {
+            this.amount = new Amount(300.0, "$");
+            return;
+        }
 
-     throw SubscriptionNotFound.WithLog(name);
+        throw SubscriptionNotFound.WithLog(name);
     }
 
     public Amount getAmount() {
         return amount;
     }
 
-    public Subscription (Double amount, String currency){
-         this.amount = new Amount(amount,currency);
+    public Subscription(Double amount, String currency) {
+        this.amount = new Amount(amount, currency);
     }
 
 }

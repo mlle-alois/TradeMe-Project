@@ -17,10 +17,9 @@ public final class Task {
     private final List<Skills> requiredSkills;
     private final int durationInDays;
     private boolean isFinished;
-    private final Project project;
 
     private Task(String name, List<AptitudeCertificates> requiredCertificates, List<Speciality> requiredSpecialities,
-                 List<Skills> requiredSkills, int durationInDays, Project project) {
+                 List<Skills> requiredSkills, int durationInDays) {
         this.name = Objects.requireNonNull(name);
         this.tradesmansInCharge = new ArrayList<>();
         this.requiredCertificates = Objects.requireNonNull(requiredCertificates);
@@ -28,12 +27,11 @@ public final class Task {
         this.requiredSkills = Objects.requireNonNull(requiredSkills);
         this.durationInDays = durationInDays;
         this.isFinished = false;
-        this.project = Objects.requireNonNull(project);
     }
 
     public static Task of(String name, List<AptitudeCertificates> requiredCertificates, List<Speciality> requiredSpecialities,
-                          List<Skills> requiredSkills, int durationInDays, Project project) {
-        return new Task(name, requiredCertificates, requiredSpecialities, requiredSkills, durationInDays, project);
+                          List<Skills> requiredSkills, int durationInDays) {
+        return new Task(name, requiredCertificates, requiredSpecialities, requiredSkills, durationInDays);
     }
 
     public String getName() {
@@ -60,20 +58,12 @@ public final class Task {
         return durationInDays;
     }
 
-    public Project getConstructProject() {
-        return project;
-    }
-
     public List<Speciality> getRequiredSpecialities() {
         return requiredSpecialities;
     }
 
     public List<Skills> getRequiredSkills() {
         return requiredSkills;
-    }
-
-    public Project getProject() {
-        return project;
     }
 
     //TODO méthodes pour tradesmans
@@ -100,7 +90,6 @@ public final class Task {
         }
         result.append("Duration : ").append(durationInDays).append(" days\n");
         result.append("Task is finished ? : ").append(isFinished).append("\n");
-        result.append("Construct project : ").append(project.getProjectName()).append("\n");
         return result.toString();
     }
 }

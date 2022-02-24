@@ -7,7 +7,6 @@ import general.user_cases.create_project.domain.valueObjects.ProjectId;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -22,21 +21,21 @@ public final class Project {
     private final Calendar endDate;
     private final Department location;
     private final DailyRate desiredDailyRate;
-    private final int durationOfEngagmentInDays;
+    private final int durationOfEngagementInDays;
     private final Status status;
 
     private Project(ProjectId projectId, String projectName, Contractor responsible, List<Task> tasks, Calendar startDate, Calendar endDate,
-                    Department location, DailyRate desiredDailyRate, int durationOfEngagmentInDays, Status status) {
+                    Department location, DailyRate desiredDailyRate, int durationOfEngagementInDays, Status status) {
         this.projectId = projectId;
         this.projectName = Objects.requireNonNull(projectName);
         this.responsible = Objects.requireNonNull(responsible);
-        this.tasks = tasks;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.location = location;
-        this.desiredDailyRate = desiredDailyRate;
-        this.durationOfEngagmentInDays = durationOfEngagmentInDays;
-        this.status = status;
+        this.tasks = Objects.requireNonNull(tasks);
+        this.startDate = Objects.requireNonNull(startDate);
+        this.endDate = Objects.requireNonNull(endDate);
+        this.location = Objects.requireNonNull(location);
+        this.desiredDailyRate = Objects.requireNonNull(desiredDailyRate);
+        this.durationOfEngagementInDays = durationOfEngagementInDays;
+        this.status = Objects.requireNonNull(status);
     }
 
     /*public static Project of(String name, Contractor responsible, List<Task> tasks, Calendar startDate, Calendar endDate,
@@ -44,8 +43,10 @@ public final class Project {
         return new Project(name, responsible, tasks, startDate, endDate, location, desiredDailyRate, durationOfEngagmentInDays, status);
     }*/
 
-    public static Project emptyProject(ProjectId projectId, String projectName, Contractor responsible) {
-        return new Project(projectId, projectName, responsible, new ArrayList<>(), null, null, null, null, 0, Status.CREATED);
+    public static Project emptyProject(ProjectId projectId, String projectName, Contractor responsible, 
+                                       List<Task> tasks, Calendar startDate, Calendar endDate,
+                                       Department location, DailyRate desiredDailyRate, int durationOfEngagmentInDays) {
+        return new Project(projectId, projectName, responsible, tasks, startDate, endDate, location, desiredDailyRate, durationOfEngagmentInDays, Status.ACTIVATED);
     }
 
     public String getProjectName() {
@@ -76,8 +77,8 @@ public final class Project {
         return desiredDailyRate;
     }
 
-    public int getDurationOfEngagmentInDays() {
-        return durationOfEngagmentInDays;
+    public int getDurationOfEngagementInDays() {
+        return durationOfEngagementInDays;
     }
 
     @Override
@@ -93,7 +94,7 @@ public final class Project {
         result.append("End date : ").append(format.format(endDate.getTime())).append("\n");
         result.append("Location : ").append(location).append("\n");
         result.append("Desired Daily Rate : ").append(desiredDailyRate).append("\n");
-        result.append("Duration Of Engagment : ").append(durationOfEngagmentInDays).append(" days\n");
+        result.append("Duration Of Engagment : ").append(durationOfEngagementInDays).append(" days\n");
         return result.toString();
     }
 

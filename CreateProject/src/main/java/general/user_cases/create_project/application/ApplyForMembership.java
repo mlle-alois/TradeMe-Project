@@ -2,7 +2,7 @@ package general.user_cases.create_project.application;
 
 import general.kernel.Command;
 import general.user_cases.create_project.domain.Company;
-import general.user_cases.create_project.domain.MemberName;
+import general.user_cases.create_project.domain.valueObjects.MemberName;
 import general.user_cases.create_project.domain.Subscription;
 
 

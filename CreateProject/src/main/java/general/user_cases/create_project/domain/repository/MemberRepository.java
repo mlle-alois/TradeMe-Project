@@ -1,6 +1,8 @@
-package general.user_cases.create_project.domain;
+package general.user_cases.create_project.domain.repository;
 
 import general.kernel.Repository;
+import general.user_cases.create_project.domain.Member;
+import general.user_cases.create_project.domain.valueObjects.MemberId;
 
 import java.util.List;
 

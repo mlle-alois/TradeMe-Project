@@ -3,15 +3,15 @@ package general.user_cases.create_project.infrastructure;
 import general.kernel.exception.NoSuchEntityException;
 import general.kernel.exception.NoSuchPaymentException;
 import general.user_cases.create_project.domain.Payment;
-import general.user_cases.create_project.domain.PaymentId;
-import general.user_cases.create_project.domain.PaymentRepository;
+import general.user_cases.create_project.domain.valueObjects.PaymentId;
+import general.user_cases.create_project.domain.repository.PaymentRepository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class InMemoryPaymentRepository implements PaymentRepository {
+public final class InMemoryPaymentRepository implements PaymentRepository {
     private final AtomicInteger count = new AtomicInteger(0);
 
     private final Map<PaymentId, Payment> data = new ConcurrentHashMap<>();
@@ -19,7 +19,7 @@ public class InMemoryPaymentRepository implements PaymentRepository {
 
     @Override
     public PaymentId nextIdentity() {
-        return new PaymentId(count.incrementAndGet());
+        return PaymentId.of(count.incrementAndGet());
     }
 
     @Override

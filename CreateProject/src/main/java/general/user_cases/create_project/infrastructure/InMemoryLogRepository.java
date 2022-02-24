@@ -3,15 +3,15 @@ package general.user_cases.create_project.infrastructure;
 import general.kernel.exception.NoSuchEntityException;
 import general.kernel.exception.NoSuchLogException;
 import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.LogId;
-import general.user_cases.create_project.domain.LogRepository;
+import general.user_cases.create_project.domain.valueObjects.LogId;
+import general.user_cases.create_project.domain.repository.LogRepository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class InMemoryLogRepository implements LogRepository {
+public final class InMemoryLogRepository implements LogRepository {
 
     private static final InMemoryLogRepository single_instance = new InMemoryLogRepository();
     private final AtomicInteger count = new AtomicInteger(0);
@@ -20,7 +20,7 @@ public class InMemoryLogRepository implements LogRepository {
 
     @Override
     public LogId nextIdentity() {
-        return new LogId(count.incrementAndGet());
+        return LogId.of(count.incrementAndGet());
     }
 
     @Override

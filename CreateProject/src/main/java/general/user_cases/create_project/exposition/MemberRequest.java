@@ -3,7 +3,7 @@ package general.user_cases.create_project.exposition;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class MemberRequest {
+public final class MemberRequest {
 
     @NotNull
     @NotBlank

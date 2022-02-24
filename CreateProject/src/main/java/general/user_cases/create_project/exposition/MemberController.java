@@ -3,6 +3,9 @@ package general.user_cases.create_project.exposition;
 import general.kernel.CommandBus;
 import general.user_cases.create_project.application.ApplyForMembership;
 import general.user_cases.create_project.domain.*;
+import general.user_cases.create_project.domain.valueObjects.CompanyId;
+import general.user_cases.create_project.domain.valueObjects.MemberId;
+import general.user_cases.create_project.domain.valueObjects.MemberName;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class MemberController {
+public final class MemberController {
 
     private final CommandBus commandBus;
     private static final String members = "/members";
@@ -28,7 +31,7 @@ public class MemberController {
 
     @PostMapping(path = members, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid MemberRequest request) {
-        ApplyForMembership applyForMembership = new ApplyForMembership(new MemberName(request.memberName), new Company(request.company.name, new CompanyId(request.company.id)), new Subscription(request.memberShipType), request.paymentType);
+        ApplyForMembership applyForMembership = new ApplyForMembership(MemberName.of(request.memberName), Company.of(request.company.name, CompanyId.of(request.company.id)), Subscription.of(request.memberShipType), request.paymentType);
         MemberId memberId = commandBus.send(applyForMembership);
         return ResponseEntity.created(URI.create(members + memberId.getValue())).build();
     }

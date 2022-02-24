@@ -1,7 +1,7 @@
-package general.user_cases.create_project.application;
+package general.user_cases.create_project.application.exception;
 
 import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.LogId;
+import general.user_cases.create_project.domain.valueObjects.LogId;
 import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
 
 public final class NoCurrencyForAmount extends RuntimeException {
@@ -14,7 +14,7 @@ public final class NoCurrencyForAmount extends RuntimeException {
     public static NoCurrencyForAmount WithLog(Double input) {
         InMemoryLogRepository inMemoryLogRepository = InMemoryLogRepository.getInstance();
         LogId logid = inMemoryLogRepository.nextIdentity();
-        inMemoryLogRepository.add(new Log(logid, messageStart + input));
+        inMemoryLogRepository.add(Log.of(logid, messageStart + input));
         return new NoCurrencyForAmount(messageStart + input);
     }
 

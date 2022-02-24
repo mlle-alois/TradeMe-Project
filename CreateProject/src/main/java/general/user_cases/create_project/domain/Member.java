@@ -1,26 +1,27 @@
 package general.user_cases.create_project.domain;
 
 import general.kernel.Entity;
+import general.user_cases.create_project.domain.valueObjects.MemberId;
+import general.user_cases.create_project.domain.valueObjects.MemberName;
 
 import java.util.Objects;
 
 public final class Member implements Entity<MemberId> {
-    private MemberId memberId;
-    private MemberName name;
-    private Company company;
-    private Subscription subscription;
+    private final MemberId memberId;
+    private final MemberName name;
+    private final Company company;
+    private final Subscription subscription;
 
-
-    public Member(MemberId memberId, MemberName name, Company company, Subscription subscription) {
+    private Member(MemberId memberId, MemberName name, Company company, Subscription subscription) {
         this.memberId = memberId;
         this.name = name;
         this.company = company;
         this.subscription = subscription;
     }
 
-   /* public static Member of(MemberId memberId,MemberName name,Company company,MemberShipType type){
-        return new Member(memberId,name,company,type);
-    }*/
+    public static Member of(MemberId memberId, MemberName name, Company company, Subscription subscription) {
+        return new Member(memberId, name, company, subscription);
+    }
 
     public MemberId getMemberId() {
         return memberId;

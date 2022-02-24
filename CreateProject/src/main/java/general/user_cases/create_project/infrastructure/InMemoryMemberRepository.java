@@ -2,15 +2,15 @@ package general.user_cases.create_project.infrastructure;
 
 import general.kernel.exception.NoSuchEntityException;
 import general.user_cases.create_project.domain.Member;
-import general.user_cases.create_project.domain.MemberId;
-import general.user_cases.create_project.domain.MemberRepository;
+import general.user_cases.create_project.domain.valueObjects.MemberId;
+import general.user_cases.create_project.domain.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class InMemoryMemberRepository implements MemberRepository {
+public final class InMemoryMemberRepository implements MemberRepository {
 
     private final AtomicInteger count = new AtomicInteger(0);
 
@@ -23,7 +23,7 @@ public class InMemoryMemberRepository implements MemberRepository {
 
     @Override
     public MemberId nextIdentity() {
-        return new MemberId(count.incrementAndGet());
+        return MemberId.of(count.incrementAndGet());
     }
 
     @Override

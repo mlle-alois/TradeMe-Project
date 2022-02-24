@@ -4,6 +4,10 @@ import general.kernel.CommandHandler;
 import general.kernel.Event;
 import general.kernel.EventDispatcher;
 import general.user_cases.create_project.domain.*;
+import general.user_cases.create_project.domain.repository.MemberRepository;
+import general.user_cases.create_project.domain.repository.PaymentRepository;
+import general.user_cases.create_project.domain.valueObjects.MemberId;
+import general.user_cases.create_project.domain.valueObjects.PaymentId;
 
 public final class ApplyForMembershipCommandHandler implements CommandHandler<ApplyForMembership, MemberId> {
     private final MemberRepository memberRepository;
@@ -19,12 +23,12 @@ public final class ApplyForMembershipCommandHandler implements CommandHandler<Ap
     @Override
     public MemberId handle(ApplyForMembership applyForMembership) {
         final MemberId memberId = memberRepository.nextIdentity();
-        Member member = new Member(memberId, applyForMembership.name, applyForMembership.company, applyForMembership.subscription);
+        Member member = Member.of(memberId, applyForMembership.name, applyForMembership.company, applyForMembership.subscription);
 
         final PaymentId paymentId = paymentRepository.nextIdentity();
-        Payment payment = new Payment(paymentId, applyForMembership.subscription.getAmount(), member);
+        Payment payment = Payment.of(paymentId, applyForMembership.subscription.getAmount(), member);
 
-        PaymentContext paymentContext = new PaymentContext(applyForMembership.PaymentType);
+        PaymentContext paymentContext = PaymentContext.of(applyForMembership.PaymentType);
         paymentContext.pay(payment);
 
         paymentRepository.add(payment);

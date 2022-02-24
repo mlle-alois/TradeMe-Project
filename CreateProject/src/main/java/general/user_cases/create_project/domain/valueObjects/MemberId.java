@@ -1,14 +1,18 @@
-package general.user_cases.create_project.domain;
+package general.user_cases.create_project.domain.valueObjects;
 
 import general.kernel.ValueObjectID;
 
 import java.util.Objects;
 
-public final class LogId implements ValueObjectID {
+public final class MemberId implements ValueObjectID {
     private final int value;
 
-    public LogId(int value) {
+    private MemberId(int value) {
         this.value = value;
+    }
+    
+    public static MemberId of(int value) {
+        return new MemberId(value);
     }
 
     public int getValue() {
@@ -19,8 +23,8 @@ public final class LogId implements ValueObjectID {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LogId logId = (LogId) o;
-        return value == logId.value;
+        MemberId memberId = (MemberId) o;
+        return value == memberId.value;
     }
 
     @Override
@@ -30,7 +34,7 @@ public final class LogId implements ValueObjectID {
 
     @Override
     public String toString() {
-        return "LogId{" +
+        return "UserId{" +
                 "value=" + value +
                 '}';
     }

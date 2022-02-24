@@ -1,6 +1,6 @@
 package general.user_cases.create_project.exposition;
 
-public class CompanyRequest {
+public final class CompanyRequest {
     public String name;
     public String id;
 

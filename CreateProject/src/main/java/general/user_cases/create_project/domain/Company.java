@@ -1,12 +1,18 @@
 package general.user_cases.create_project.domain;
 
-public final class Company {
-    private String name;
-    private CompanyId id;
+import general.user_cases.create_project.domain.valueObjects.CompanyId;
 
-    public Company(String name, CompanyId id) {
+public final class Company {
+    private final String name;
+    private final CompanyId id;
+
+    private Company(String name, CompanyId id) {
         this.name = name;
         this.id = id;
+    }
+    
+    public static Company of(String name, CompanyId id) {
+        return new Company(name, id);
     }
 
     public String getName() {

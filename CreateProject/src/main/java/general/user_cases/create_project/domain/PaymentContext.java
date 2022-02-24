@@ -1,19 +1,25 @@
 package general.user_cases.create_project.domain;
 
-import general.user_cases.create_project.application.NoSuchPaymentType;
+import general.user_cases.create_project.application.exception.NoSuchPaymentType;
+import general.user_cases.create_project.domain.enums.PaymentContextType;
+import general.user_cases.create_project.domain.strategy.PaymentStategy;
 
 import java.util.Objects;
 
-public class PaymentContext {
+public final class PaymentContext {
 
     private PaymentStategy paymentStategy;
 
-    public PaymentContext(String paymentStategy) {
-        if (Objects.equals(paymentStategy, PaymentContextType.masterCard.getValue())) {
+    private PaymentContext(String paymentStrategy) {
+        if (Objects.equals(paymentStrategy, PaymentContextType.masterCard.getValue())) {
             this.paymentStategy = new PaymentMasterCard();
             return;
         }
-        throw NoSuchPaymentType.WithLog(paymentStategy);
+        throw NoSuchPaymentType.WithLog(paymentStrategy);
+    }
+    
+    public static PaymentContext of(String paymentStrategy) {
+        return new PaymentContext(paymentStrategy);
     }
 
     public void setPaymentStategy(PaymentStategy paymentStategy) {

@@ -1,13 +1,13 @@
 package general.user_cases.create_project.domain;
 
-import general.user_cases.create_project.application.NegativeAmount;
-import general.user_cases.create_project.application.NoCurrencyForAmount;
+import general.user_cases.create_project.application.exception.NegativeAmount;
+import general.user_cases.create_project.application.exception.NoCurrencyForAmount;
 
 public final class Amount {
-    private double amount;
-    private String currency;
+    private final double amount;
+    private final String currency;
 
-    public Amount(double amount, String currency) {
+    private Amount(double amount, String currency) {
         if (amount < 0) {
             throw NegativeAmount.WithLog(amount);
         }
@@ -17,6 +17,10 @@ public final class Amount {
 
         this.amount = amount;
         this.currency = currency;
+    }
+    
+    public static Amount of(double amount, String currency) {
+        return new Amount(amount, currency);
     }
 
     public double getAmount() {

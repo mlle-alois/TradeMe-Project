@@ -1,20 +1,25 @@
 package general.user_cases.create_project.domain;
 
-import general.user_cases.create_project.application.SubscriptionNotFound;
+import general.user_cases.create_project.application.exception.SubscriptionNotFound;
+import general.user_cases.create_project.domain.enums.MemberShipType;
 
 import java.util.Objects;
 
-public class Subscription {
+public final class Subscription {
 
-    private Amount amount;
+    private final Amount amount;
 
-    public Subscription(String name) {
+    private Subscription(String name) {
         if (Objects.equals(name, MemberShipType.annual.getValue())) {
-            this.amount = new Amount(300.0, "$");
+            this.amount = Amount.of(300.0, "$");
             return;
         }
 
         throw SubscriptionNotFound.WithLog(name);
+    }
+    
+    public static Subscription of(String name) {
+        return new Subscription(name);
     }
 
     public Amount getAmount() {
@@ -22,7 +27,7 @@ public class Subscription {
     }
 
     public Subscription(Double amount, String currency) {
-        this.amount = new Amount(amount, currency);
+        this.amount = Amount.of(amount, currency);
     }
 
 }

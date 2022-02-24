@@ -1,4 +1,4 @@
-package general.user_cases.create_project.domain;
+package general.user_cases.create_project.domain.enums;
 
 public enum PaymentContextType {
     masterCard("MasterCard");

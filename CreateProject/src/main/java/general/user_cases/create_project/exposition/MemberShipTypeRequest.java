@@ -1,6 +1,6 @@
 package general.user_cases.create_project.exposition;
 
-public class MemberShipTypeRequest {
+public final class MemberShipTypeRequest {
     public String name;
 
     @Override

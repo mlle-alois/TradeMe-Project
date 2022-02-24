@@ -1,22 +1,26 @@
 package general.user_cases.create_project.domain;
 
 import general.kernel.Entity;
+import general.user_cases.create_project.domain.valueObjects.LogId;
 
 import java.util.Objects;
 
 public final class Log implements Entity<LogId> {
-    private LogId logid;
-    private String message;
+    private final LogId logId;
+    private final String message;
 
-    public Log(LogId logid, String message) {
-        this.logid = logid;
+    private Log(LogId logId, String message) {
+        this.logId = logId;
         this.message = message;
     }
-
+    
+    public static Log of(LogId logId, String message) {
+        return Log.of(logId, message);
+    }
 
     @Override
     public LogId id() {
-        return logid;
+        return logId;
     }
 
     @Override
@@ -24,18 +28,18 @@ public final class Log implements Entity<LogId> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Log log = (Log) o;
-        return Objects.equals(logid, log.logid) && Objects.equals(message, log.message);
+        return Objects.equals(logId, log.logId) && Objects.equals(message, log.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(logid, message);
+        return Objects.hash(logId, message);
     }
 
     @Override
     public String toString() {
         return "Log{" +
-                "logid=" + logid +
+                "logid=" + logId +
                 ", message='" + message + '\'' +
                 '}';
     }

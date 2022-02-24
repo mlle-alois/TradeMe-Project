@@ -1,14 +1,18 @@
-package general.user_cases.create_project.domain;
+package general.user_cases.create_project.domain.valueObjects;
 
 import general.kernel.ValueObjectID;
 
 import java.util.Objects;
 
-public class PaymentId implements ValueObjectID {
+public final class PaymentId implements ValueObjectID {
     private final int value;
 
-    public PaymentId(int value) {
+    private PaymentId(int value) {
         this.value = value;
+    }
+    
+    public static PaymentId of(int value) {
+        return new PaymentId(value);
     }
 
     public int getValue() {

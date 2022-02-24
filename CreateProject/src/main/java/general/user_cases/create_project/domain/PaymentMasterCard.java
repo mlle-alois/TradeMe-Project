@@ -1,6 +1,8 @@
 package general.user_cases.create_project.domain;
 
-public class PaymentMasterCard implements PaymentStategy {
+import general.user_cases.create_project.domain.strategy.PaymentStategy;
+
+public final class PaymentMasterCard implements PaymentStategy {
     @Override
     public void pay(Payment payment) {
         System.out.println("Membre " + payment.getMember().id().getValue() + " payment avec master card");

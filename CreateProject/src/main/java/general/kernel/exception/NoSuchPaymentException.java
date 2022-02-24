@@ -1,8 +1,8 @@
 package general.kernel.exception;
 
 import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.LogId;
-import general.user_cases.create_project.domain.PaymentId;
+import general.user_cases.create_project.domain.valueObjects.LogId;
+import general.user_cases.create_project.domain.valueObjects.PaymentId;
 import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
 
 public final class NoSuchPaymentException extends RuntimeException {
@@ -16,7 +16,7 @@ public final class NoSuchPaymentException extends RuntimeException {
     public static NoSuchPaymentException withId(PaymentId id) {
         InMemoryLogRepository inMemoryLogRepository = InMemoryLogRepository.getInstance();
         LogId logid = inMemoryLogRepository.nextIdentity();
-        inMemoryLogRepository.add(new Log(logid, messageStart + id));
+        inMemoryLogRepository.add(Log.of(logid, messageStart + id));
         return new NoSuchPaymentException(String.format(messageStart, id.getValue()));
     }
 

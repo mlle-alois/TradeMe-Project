@@ -57,4 +57,12 @@ public class Member implements Entity<MemberId> {
     public int hashCode() {
         return Objects.hash(memberId, name, company, subscription);
     }
+
+
+    @Override
+    public String toString() {
+        return "Member id : " + memberId.toString() + " \n" +
+                "Name : " + name + " \n" +
+                "Company \n: " + company.toString() + " \n";
+    }
 }

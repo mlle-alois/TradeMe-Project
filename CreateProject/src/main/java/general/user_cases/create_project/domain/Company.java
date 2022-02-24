@@ -10,7 +10,7 @@ public final class Company {
         this.name = name;
         this.id = id;
     }
-    
+
     public static Company of(String name, CompanyId id) {
         return new Company(name, id);
     }
@@ -21,5 +21,11 @@ public final class Company {
 
     public CompanyId getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Company Id : " + id.toString() + " \n" +
+                "Name : " + name + " \n";
     }
 }

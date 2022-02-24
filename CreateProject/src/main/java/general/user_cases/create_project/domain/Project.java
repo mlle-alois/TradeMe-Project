@@ -85,7 +85,7 @@ public final class Project {
     public String toString() {
         StringBuilder result = new StringBuilder();
         result.append("Name : ").append(projectName).append("\n");
-        result.append("Responsible : \n").append(responsible).append("\n");
+        result.append("Responsible : \n").append(responsible.toString()).append("\n");
         for (Task task : tasks) {
             result.append("------ Task : \n").append(task.toString()).append("\n");
         }

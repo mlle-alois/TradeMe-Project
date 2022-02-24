@@ -15,6 +15,7 @@ public final class MemberId implements ValueObjectID {
         return new MemberId(value);
     }
 
+    @Override
     public int getValue() {
         return value;
     }

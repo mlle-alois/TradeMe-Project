@@ -4,15 +4,15 @@ import general.kernel.ValueObjectID;
 
 import java.util.Objects;
 
-public final class PaymentId implements ValueObjectID {
+public final class ProjectId implements ValueObjectID {
     private final int value;
 
-    private PaymentId(int value) {
+    private ProjectId(int value) {
         this.value = value;
     }
     
-    public static PaymentId of(int value) {
-        return new PaymentId(value);
+    public static ProjectId of(int value) {
+        return new ProjectId(value);
     }
 
     @Override
@@ -24,8 +24,8 @@ public final class PaymentId implements ValueObjectID {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PaymentId paymentId = (PaymentId) o;
-        return value == paymentId.value;
+        ProjectId projectId = (ProjectId) o;
+        return value == projectId.value;
     }
 
     @Override
@@ -35,9 +35,8 @@ public final class PaymentId implements ValueObjectID {
 
     @Override
     public String toString() {
-        return "PaymentId{" +
+        return "ProjectId{" +
                 "value=" + value +
                 '}';
     }
-
 }

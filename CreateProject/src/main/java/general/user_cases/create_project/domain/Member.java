@@ -6,17 +6,17 @@ import general.user_cases.create_project.domain.valueObjects.MemberName;
 
 import java.util.Objects;
 
-public final class Member implements Entity<MemberId> {
+public class Member implements Entity<MemberId> {
     private final MemberId memberId;
     private final MemberName name;
     private final Company company;
     private final Subscription subscription;
 
-    private Member(MemberId memberId, MemberName name, Company company, Subscription subscription) {
-        this.memberId = memberId;
-        this.name = name;
-        this.company = company;
-        this.subscription = subscription;
+    protected Member(MemberId memberId, MemberName name, Company company, Subscription subscription) {
+        this.memberId = Objects.requireNonNull(memberId);
+        this.name = Objects.requireNonNull(name);
+        this.company = Objects.requireNonNull(company);
+        this.subscription = Objects.requireNonNull(subscription);
     }
 
     public static Member of(MemberId memberId, MemberName name, Company company, Subscription subscription) {

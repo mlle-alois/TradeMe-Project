@@ -1,15 +1,15 @@
 package general;
 
 import general.kernel.*;
-import general.user_cases.create_project.application.ApplyForMembership;
-import general.user_cases.create_project.application.ApplyForMembershipCommandHandler;
-import general.user_cases.create_project.application.ApplyForMembershipEvent;
-import general.user_cases.create_project.application.ApplyForMembershipEventListener;
+import general.user_cases.create_project.application.CreateProject;
+import general.user_cases.create_project.application.CreateProjectCommandHandler;
+import general.user_cases.create_project.application.CreateProjectEvent;
+import general.user_cases.create_project.application.CreateProjectEventListener;
 import general.user_cases.create_project.domain.repository.MemberRepository;
-import general.user_cases.create_project.domain.repository.PaymentRepository;
+import general.user_cases.create_project.domain.repository.ProjectRepository;
 import general.user_cases.create_project.infrastructure.DefaultEventDispatcher;
 import general.user_cases.create_project.infrastructure.InMemoryMemberRepository;
-import general.user_cases.create_project.infrastructure.InMemoryPaymentRepository;
+import general.user_cases.create_project.infrastructure.InMemoryProjectRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,26 +26,26 @@ public class CreateProjectConfiguration {
     }
 
     @Bean
-    public PaymentRepository paymentRepository() {
-        return new InMemoryPaymentRepository();
+    public ProjectRepository projectRepository() {
+        return new InMemoryProjectRepository();
     }
 
     @Bean
-    public EventDispatcher<Event> eventEventDispatcher() {
+    public EventDispatcher<Event> eventDispatcher() {
         final Map<Class<? extends Event>, List<EventListener<? extends Event>>> listenerMap = new HashMap<>();
-        listenerMap.put(ApplyForMembershipEvent.class, List.of(new ApplyForMembershipEventListener()));
+        listenerMap.put(CreateProjectEvent.class, List.of(new CreateProjectEventListener()));
         return new DefaultEventDispatcher(listenerMap);
     }
 
     @Bean
-    public ApplyForMembershipCommandHandler applyForMembershipCommandHandler() {
-        return new ApplyForMembershipCommandHandler(memberRepository(), paymentRepository(), eventEventDispatcher());
+    public CreateProjectCommandHandler applyForMembershipCommandHandler() {
+        return new CreateProjectCommandHandler(projectRepository(), memberRepository(), eventDispatcher());
     }
 
     @Bean
     public CommandBus commandBus() {
         final Map<Class<? extends Command>, CommandHandler> commandHandlerMap = new HashMap<>();
-        commandHandlerMap.put(ApplyForMembership.class, new ApplyForMembershipCommandHandler(memberRepository(), paymentRepository(), eventEventDispatcher()));
+        commandHandlerMap.put(CreateProject.class, new CreateProjectCommandHandler(projectRepository(), memberRepository(), eventDispatcher()));
         return new SimpleCommandBus(commandHandlerMap);
     }
 

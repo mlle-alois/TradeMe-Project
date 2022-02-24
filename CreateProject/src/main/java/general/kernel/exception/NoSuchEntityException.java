@@ -1,8 +1,10 @@
 package general.kernel.exception;
 
+import general.kernel.ValueObjectID;
 import general.user_cases.create_project.domain.Log;
 import general.user_cases.create_project.domain.valueObjects.LogId;
 import general.user_cases.create_project.domain.valueObjects.MemberId;
+import general.user_cases.create_project.domain.valueObjects.ProjectId;
 import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
 
 public final class NoSuchEntityException extends RuntimeException {
@@ -12,7 +14,7 @@ public final class NoSuchEntityException extends RuntimeException {
         super(message);
     }
 
-    public static NoSuchEntityException withId(MemberId id) {
+    public static NoSuchEntityException withId(ValueObjectID id) {
         InMemoryLogRepository inMemoryLogRepository = InMemoryLogRepository.getInstance();
         LogId logid = inMemoryLogRepository.nextIdentity();
         inMemoryLogRepository.add(Log.of(logid, messageStart + id));

@@ -15,6 +15,7 @@ public final class LogId implements ValueObjectID {
         return new LogId(value);
     }
 
+    @Override
     public int getValue() {
         return value;
     }

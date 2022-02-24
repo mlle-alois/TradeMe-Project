@@ -1,31 +1,28 @@
 package general.user_cases.create_project.domain.valueObjects;
 
-import general.kernel.ValueObjectID;
-
 import java.util.Objects;
 
-public final class PaymentId implements ValueObjectID {
+public final class DailyRate {
     private final int value;
 
-    private PaymentId(int value) {
+    private DailyRate(int value) {
         this.value = value;
     }
-    
-    public static PaymentId of(int value) {
-        return new PaymentId(value);
+
+    public static DailyRate of(int value) {
+        return new DailyRate(value);
     }
 
-    @Override
-    public int getValue() {
-        return value;
+    public String getValue() {
+        return String.valueOf(value);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PaymentId paymentId = (PaymentId) o;
-        return value == paymentId.value;
+        DailyRate dailyRate = (DailyRate) o;
+        return value == dailyRate.value;
     }
 
     @Override
@@ -35,9 +32,8 @@ public final class PaymentId implements ValueObjectID {
 
     @Override
     public String toString() {
-        return "PaymentId{" +
+        return "DailyRate{" +
                 "value=" + value +
                 '}';
     }
-
 }

@@ -8,10 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Member" />
         <module name="CreateProject" />
+        <module name="EndProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CreateProject" target="15" />
+      <module name="EndProject" target="17" />
       <module name="Member" target="15" />
       <module name="TradeMe-Project" target="15" />
     </bytecodeTargetLevel>

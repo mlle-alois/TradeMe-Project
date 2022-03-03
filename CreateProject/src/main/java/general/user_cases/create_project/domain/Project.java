@@ -38,12 +38,7 @@ public final class Project {
         this.status = Objects.requireNonNull(status);
     }
 
-    /*public static Project of(String name, Contractor responsible, List<Task> tasks, Calendar startDate, Calendar endDate,
-                             Department location, DailyRate desiredDailyRate, int durationOfEngagmentInDays, Status status) {
-        return new Project(name, responsible, tasks, startDate, endDate, location, desiredDailyRate, durationOfEngagmentInDays, status);
-    }*/
-
-    public static Project emptyProject(ProjectId projectId, String projectName, Contractor responsible, 
+    public static Project of(ProjectId projectId, String projectName, Contractor responsible,
                                        List<Task> tasks, Calendar startDate, Calendar endDate,
                                        Department location, DailyRate desiredDailyRate, int durationOfEngagmentInDays) {
         return new Project(projectId, projectName, responsible, tasks, startDate, endDate, location, desiredDailyRate, durationOfEngagmentInDays, Status.ACTIVATED);

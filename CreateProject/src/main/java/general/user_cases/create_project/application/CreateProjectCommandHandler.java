@@ -25,7 +25,7 @@ public final class CreateProjectCommandHandler implements CommandHandler<CreateP
 
     public ProjectId handle(CreateProject createProject) {
         final ProjectId projectId = projectRepository.nextIdentity();
-        Project project = Project.emptyProject(projectId, createProject.projectName, 
+        Project project = Project.of(projectId, createProject.projectName,
                 (Contractor) memberRepository.findById(createProject.responsible), 
                 createProject.tasks, createProject.startDate, createProject.endDate,
                 createProject.location, createProject.desiredDailyRate, createProject.durationOfEngagmentInDays);

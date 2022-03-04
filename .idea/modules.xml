@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CreateProject/CreateProject.iml" filepath="$PROJECT_DIR$/CreateProject/CreateProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EducationCertificate/EducationCertificate.iml" filepath="$PROJECT_DIR$/EducationCertificate/EducationCertificate.iml" />
       <module fileurl="file://$PROJECT_DIR$/EndProject/EndProject.iml" filepath="$PROJECT_DIR$/EndProject/EndProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/Member/Member.iml" filepath="$PROJECT_DIR$/Member/Member.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TradeMe-Project.iml" filepath="$PROJECT_DIR$/.idea/TradeMe-Project.iml" />

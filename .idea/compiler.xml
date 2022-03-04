@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Member" />
         <module name="CreateProject" />
+        <module name="Member" />
         <module name="EndProject" />
+        <module name="EducationCertificate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CreateProject" target="15" />
+      <module name="EducationCertificate" target="17" />
       <module name="EndProject" target="17" />
       <module name="Member" target="15" />
       <module name="TradeMe-Project" target="15" />

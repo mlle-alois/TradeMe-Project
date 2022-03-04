@@ -12,6 +12,7 @@
         <module>Member</module>
         <module>CreateProject</module>
         <module>EndProject</module>
+        <module>EducationCertificate</module>
     </modules>
 
     <properties>

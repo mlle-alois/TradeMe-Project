@@ -38,14 +38,14 @@ public class CreateProjectConfiguration {
     }
 
     @Bean
-    public CreateProjectCommandHandler applyForMembershipCommandHandler() {
+    public CreateProjectCommandHandler createProjectCommandHandler() {
         return new CreateProjectCommandHandler(projectRepository(), memberRepository(), eventDispatcher());
     }
 
     @Bean
     public CommandBus commandBus() {
         final Map<Class<? extends Command>, CommandHandler> commandHandlerMap = new HashMap<>();
-        commandHandlerMap.put(CreateProject.class, new CreateProjectCommandHandler(projectRepository(), memberRepository(), eventDispatcher()));
+        commandHandlerMap.put(CreateProject.class, createProjectCommandHandler());
         return new SimpleCommandBus(commandHandlerMap);
     }
 

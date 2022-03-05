@@ -11,6 +11,7 @@
     <modules>
         <module>Member</module>
         <module>CreateProject</module>
+        <module>AssignTradesman</module>
     </modules>
 
     <properties>

@@ -1,7 +1,5 @@
 package application;
 
-import domain.Project;
-import domain.Tradesman;
 import kernel.CommandHandler;
 import kernel.Event;
 import kernel.EventDispatcher;
@@ -23,12 +21,9 @@ public final class RequestAssignTradesmanCommandHandler implements CommandHandle
         this.eventDispatcher = Objects.requireNonNull(eventDispatcher);
     }
 
-    public ProjectId handle(RequestAssignTradesman createProject) {
+    public ProjectId handle(RequestAssignTradesman assignTradesman) {
        final ProjectId projectId = projectRepository.nextIdentity();
-        Project project = Project.emptyProject(projectId, createProject.projectName
-               , createProject.startDate, createProject.endDate
-                , createProject.durationOfEngagmentInDays);
-        projectRepository.add(project);
+
         eventDispatcher.dispatch(new RequestAssignTradesmanEvent(projectId));
         return projectId;
     }

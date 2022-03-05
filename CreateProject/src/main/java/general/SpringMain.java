@@ -27,7 +27,7 @@ SpringMain {
         MemberRepository memberRepository = applicationContext.getBean(MemberRepository.class);
         ProjectRepository projectRepository = applicationContext.getBean(ProjectRepository.class);
 
-        MemberId memberId = MemberId.of(1);
+        MemberId memberId = memberRepository.nextIdentity();
         memberRepository.add(Contractor.of(memberId, MemberName.of("Aloïs"), Company.of("Sport 2000", CompanyId.of("EV2TS5000")), Subscription.of("annual")));
 
         List<Task> tasks = new ArrayList<>() {{

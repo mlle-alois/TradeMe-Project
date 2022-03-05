@@ -1,6 +1,7 @@
 package general;
 
 import general.kernel.CommandBus;
+import general.user_cases.create_project.application.ApplyForCertificate;
 import general.user_cases.create_project.application.ModifyTradesmanCertificate;
 import general.user_cases.create_project.domain.*;
 import general.user_cases.create_project.domain.enums.AptitudeCertificates;
@@ -36,9 +37,13 @@ SpringMain {
 
         System.out.println(tradesman.toString());
 
-        ModifyTradesmanCertificate modifyTradesmanCertificate = new ModifyTradesmanCertificate(tradesman.getTradesmanId(), AptitudeCertificates.EDUCATIONAL);
+        //ModifyTradesmanCertificate modifyTradesmanCertificate = new ModifyTradesmanCertificate(tradesman.getTradesmanId(), AptitudeCertificates.EDUCATIONAL);
 
-        commandBus.send(modifyTradesmanCertificate);
+        //commandBus.send(modifyTradesmanCertificate);
+
+        ApplyForCertificate applyForCertificate = new ApplyForCertificate(tradesman,AptitudeCertificates.EDUCATIONAL);
+
+        commandBus.send(applyForCertificate);
 
         Tradesman test = tradesmanRepository.findById(tradesmanId);
 

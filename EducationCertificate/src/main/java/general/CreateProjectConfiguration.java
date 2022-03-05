@@ -35,22 +35,35 @@ public class CreateProjectConfiguration {
     }
 
     @Bean
+    public ModifyTradesmanCertificateCommandHandler modifyTradesmanCertificateCommandHandler(){
+        return new ModifyTradesmanCertificateCommandHandler(tradesmanRepository());
+    }
+
+    @Bean
+    public RetreveCertificatesCommandHandler retreveCertificatesCommandHandler(){
+        return new RetreveCertificatesCommandHandler(tradesmanRepository());
+    }
+
+    @Bean
     public EventDispatcher<Event> eventDispatcher() {
         final Map<Class<? extends Event>, List<EventListener<? extends Event>>> listenerMap = new HashMap<>();
-        listenerMap.put(ModifyTradesmanCertificateEvent.class, List.of(new ModifyTradesmanCertificateEventListener()));
+        listenerMap.put(ApplyForCertificateEvent.class, List.of(new ApplyForCertificateEventListener(modifyTradesmanCertificateCommandHandler())));
         return new DefaultEventDispatcher(listenerMap);
     }
 
 
+
+
     @Bean
-    public ModifyTradesmanCertificateCommandHandler modifyTradesmanCertificateCommandHandler(){
-        return new ModifyTradesmanCertificateCommandHandler(tradesmanRepository(), eventDispatcher());
+    public ApplyForCertificateCommandHandler applyForCertificateCommandHandler(){
+        return new ApplyForCertificateCommandHandler(eventDispatcher());
     }
 
     @Bean
     public CommandBus commandBus() {
         final Map<Class<? extends Command>, CommandHandler> commandHandlerMap = new HashMap<>();
         commandHandlerMap.put(ModifyTradesmanCertificate.class, modifyTradesmanCertificateCommandHandler());
+        commandHandlerMap.put(ApplyForCertificate.class, applyForCertificateCommandHandler());
         return new SimpleCommandBus(commandHandlerMap);
     }
 

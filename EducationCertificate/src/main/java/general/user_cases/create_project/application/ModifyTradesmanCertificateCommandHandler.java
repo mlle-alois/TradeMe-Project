@@ -12,12 +12,10 @@ import general.user_cases.create_project.domain.valueObjects.TradesmanId;
 public class ModifyTradesmanCertificateCommandHandler implements CommandHandler<ModifyTradesmanCertificate, Void> {
 
     private final TradesmanRepository tradesmanRepository;
-    private final EventDispatcher<Event> eventDispatcher;
 
-    public ModifyTradesmanCertificateCommandHandler(TradesmanRepository tradesmanRepository, EventDispatcher<Event> eventDispatcher) {
+    public ModifyTradesmanCertificateCommandHandler(TradesmanRepository tradesmanRepository) {
 
         this.tradesmanRepository = tradesmanRepository;
-        this.eventDispatcher = eventDispatcher;
     }
 
     @Override
@@ -26,7 +24,6 @@ public class ModifyTradesmanCertificateCommandHandler implements CommandHandler<
         Tradesman tradesman = tradesmanRepository.findById(tradesmanId);
         tradesman.addCertificate(command.aptitudeCertificates);
         tradesmanRepository.add(tradesman);
-        eventDispatcher.dispatch(new ModifyTradesmanCertificateEvent(tradesmanId));
         return null;
     }
 }

@@ -1,9 +1,9 @@
 package general.kernel.exception;
 
-import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.valueObjects.LogId;
-import general.user_cases.create_project.domain.valueObjects.PaymentId;
-import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
+import general.user_cases.apply_for_certificate.domain.Log;
+import general.user_cases.apply_for_certificate.domain.valueObjects.LogId;
+import general.user_cases.apply_for_certificate.domain.valueObjects.PaymentId;
+import general.user_cases.apply_for_certificate.infrastructure.InMemoryLogRepository;
 
 public final class NoSuchPaymentException extends RuntimeException {
     private static final String messageStart = "No Payment entity found with ID %d.";

@@ -1,8 +1,8 @@
 package general.kernel.exception;
 
-import general.user_cases.create_project.domain.Log;
-import general.user_cases.create_project.domain.valueObjects.LogId;
-import general.user_cases.create_project.infrastructure.InMemoryLogRepository;
+import general.user_cases.apply_for_certificate.domain.Log;
+import general.user_cases.apply_for_certificate.domain.valueObjects.LogId;
+import general.user_cases.apply_for_certificate.infrastructure.InMemoryLogRepository;
 
 public final class NoSuchLogException extends RuntimeException {
     private static final String messageStart = "No log entity found with ID %d.";

@@ -1,14 +1,14 @@
 package general;
 
 import general.kernel.*;
-import general.user_cases.create_project.application.*;
-import general.user_cases.create_project.domain.repository.MemberRepository;
-import general.user_cases.create_project.domain.repository.ProjectRepository;
-import general.user_cases.create_project.domain.repository.TradesmanRepository;
-import general.user_cases.create_project.infrastructure.DefaultEventDispatcher;
-import general.user_cases.create_project.infrastructure.InMemoryMemberRepository;
-import general.user_cases.create_project.infrastructure.InMemoryProjectRepository;
-import general.user_cases.create_project.infrastructure.InMemoryTradesmanRepository;
+import general.user_cases.apply_for_certificate.application.*;
+import general.user_cases.apply_for_certificate.domain.repository.MemberRepository;
+import general.user_cases.apply_for_certificate.domain.repository.ProjectRepository;
+import general.user_cases.apply_for_certificate.domain.repository.TradesmanRepository;
+import general.user_cases.apply_for_certificate.infrastructure.DefaultEventDispatcher;
+import general.user_cases.apply_for_certificate.infrastructure.InMemoryMemberRepository;
+import general.user_cases.apply_for_certificate.infrastructure.InMemoryProjectRepository;
+import general.user_cases.apply_for_certificate.infrastructure.InMemoryTradesmanRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

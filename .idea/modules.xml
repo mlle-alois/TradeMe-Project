@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AssignTradesman/AssignTradesman.iml" filepath="$PROJECT_DIR$/AssignTradesman/AssignTradesman.iml" />
       <module fileurl="file://$PROJECT_DIR$/CreateProject/CreateProject.iml" filepath="$PROJECT_DIR$/CreateProject/CreateProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/EducationCertificate/EducationCertificate.iml" filepath="$PROJECT_DIR$/EducationCertificate/EducationCertificate.iml" />
       <module fileurl="file://$PROJECT_DIR$/EndProject/EndProject.iml" filepath="$PROJECT_DIR$/EndProject/EndProject.iml" />

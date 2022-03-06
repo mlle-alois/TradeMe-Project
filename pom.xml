@@ -13,6 +13,7 @@
         <module>CreateProject</module>
         <module>EndProject</module>
         <module>EducationCertificate</module>
+        <module>AssignTradesman</module>
     </modules>
 
     <properties>

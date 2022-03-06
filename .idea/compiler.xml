@@ -10,9 +10,11 @@
         <module name="Member" />
         <module name="EndProject" />
         <module name="EducationCertificate" />
+        <module name="AssignTradesman" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AssignTradesman" target="15" />
       <module name="CreateProject" target="15" />
       <module name="EducationCertificate" target="17" />
       <module name="EndProject" target="17" />

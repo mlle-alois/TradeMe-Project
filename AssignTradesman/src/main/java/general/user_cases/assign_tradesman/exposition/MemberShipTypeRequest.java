@@ -1,0 +1,12 @@
+package general.user_cases.assign_tradesman.exposition;
+
+public final class MemberShipTypeRequest {
+    public String name;
+
+    @Override
+    public String toString() {
+        return "memberShipTypeDTO{" +
+                "memberShipType='" + name + '\'' +
+                '}';
+    }
+}

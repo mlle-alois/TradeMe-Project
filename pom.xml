@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>AssignTradesman</module>
         <module>Member</module>
         <module>CreateProject</module>
         <module>EndProject</module>

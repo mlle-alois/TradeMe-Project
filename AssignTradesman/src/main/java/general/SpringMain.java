@@ -33,7 +33,6 @@ SpringMain {
         memberRepository.add(Tradesman.of(memberId, MemberName.of("Ichaï"), Company.of("Sport 2000", CompanyId.of("EV2TS5000")), Subscription.of("annual")));
 
 
-
         Calendar startDate = Calendar.getInstance();
         startDate.set(2022, Calendar.JUNE, 15);
 
@@ -41,7 +40,7 @@ SpringMain {
         endDate.set(2022, Calendar.JUNE, 20);
 
         ProjectId projectId = ProjectId.of(1);
-       Project project = Project.emptyProject( projectId,"Plomberie magasin", startDate, endDate);
+        Project project = Project.emptyProject(projectId, "Plomberie magasin", startDate, endDate);
         projectRepository.add(project);
 
         Tradesman tradesman = memberRepository.findById(memberId);
@@ -55,7 +54,7 @@ SpringMain {
         endDateNew.set(2022, Calendar.JUNE, 14);
 
 
-        Project projectNew = Project.emptyProject( projectIdNew,"Maçonnerie magasin", startDateNew, endDateNew);
+        Project projectNew = Project.emptyProject(projectIdNew, "Maçonnerie magasin", startDateNew, endDateNew);
         projectRepository.add(projectNew);
 
         ApplyForProject applyForProject = new ApplyForProject(tradesman, projectNew);

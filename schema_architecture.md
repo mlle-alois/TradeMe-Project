@@ -8,7 +8,7 @@
 Dans le cadre de l'application Trade Me pour le projet d'architecture des Logiciels des 4ème années
 nous voulons connaitre la justification des différents choix d'architecture pour répondre au besoin du projet.
 
-### Résumé de notre architecture (nos uses cases réalisés)
+### Résumé de notre architecture
 * TradeMe-Project
   * AssignTradesman
     * general
@@ -48,9 +48,8 @@ nous voulons connaitre la justification des différents choix d'architecture pou
 
 ## Options envisagées
 
-* 1 seul module et division en packages par cas d'utilisation
+* division en packages par cas d'utilisation
 * 1 module par cas d'utilisation
-* Répartition en Bounded Context
 
 ## Résultat de la décision
 
@@ -70,11 +69,12 @@ chaque module était autonome et une "mini application"
 
 ## Avantages et inconvénients des options
 
-### 1 seul module et division en packages par cas d'utilisation
+### Division en packages par cas d'utilisation
 
 * C'est un bon choix car :
-    * cela permet de
+    * cela permet de faire un package des classes communes
     * simple d'utilisation
+    * s'orienter vers une architecture avec du Bounded Context
 * C'est un mauvais choix car :
     * on peut facilement se parasiter avec les classes des autres packages
     * cela manque de d'indépendance entre les cas d'utilisation
@@ -88,10 +88,3 @@ chaque module était autonome et une "mini application"
 * C'est un mauvais choix car :
     * il y a des doublons de code
     * pas de dossier partagé entre les cas d'utilisation
-
-### Répartition en Bounded Context
-
-* C'est un bon choix car :
-    * il y a un partage des classes communes
-* C'est un mauvais choix car :
-    * nous n'avons pas encore vu comment mettre en place le Bounded Context

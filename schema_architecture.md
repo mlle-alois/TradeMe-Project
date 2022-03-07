@@ -8,10 +8,43 @@
 Dans le cadre de l'application Trade Me pour le projet d'architecture des Logiciels des 4ème années
 nous voulons connaitre la justification des différents choix d'architecture pour répondre au besoin du projet.
 
-## Facteurs de décision
-
-* Indépendance des cas d'utilisation présentés par le sujet
-* {driver 2, e.g., a force, facing concern, …}
+### Résumé de notre architecture (nos uses cases réalisés)
+* TradeMe-Project
+  * AssignTradesman
+    * general
+      * application
+      * domain
+      * exposition
+      * infrastructure
+    * kernel
+  * CreateProject
+      * general
+          * application
+          * domain
+          * exposition
+          * infrastructure
+      * kernel
+  * EducationCertificate
+      * general
+          * application
+          * domain
+          * exposition
+          * infrastructure
+      * kernel
+  * EndProject
+      * general
+          * application
+          * domain
+          * exposition
+          * infrastructure
+      * kernel
+  * Member
+      * general
+          * application
+          * domain
+          * exposition
+          * infrastructure
+      * kernel
 
 ## Options envisagées
 
@@ -39,32 +72,26 @@ chaque module était autonome et une "mini application"
 
 ### 1 seul module et division en packages par cas d'utilisation
 
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
+* C'est un bon choix car :
+    * cela permet de
+    * simple d'utilisation
+* C'est un mauvais choix car :
+    * on peut facilement se parasiter avec les classes des autres packages
+    * cela manque de d'indépendance entre les cas d'utilisation
 
 ### 1 module par cas d'utilisation
 
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
+* C'est un bon choix car :
+    * les cas d'utilisation sont indépendants à 100 %, comme des "minis applications"
+    * simple d'utilisation
+    * on ne garde que l'essentiel
+* C'est un mauvais choix car :
+    * il y a des doublons de code
+    * pas de dossier partagé entre les cas d'utilisation
 
 ### Répartition en Bounded Context
 
-{example | description | pointer to more information | …} <!-- optional -->
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Bad, because {argument c}
-* … <!-- numbers of pros and cons can vary -->
-
-## Liens
-
-* {Link type} {Link to ADR} <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* C'est un bon choix car :
+    * il y a un partage des classes communes
+* C'est un mauvais choix car :
+    * nous n'avons pas encore vu comment mettre en place le Bounded Context

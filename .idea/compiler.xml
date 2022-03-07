@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="CreateProject" />
         <module name="Member" />
-        <module name="EndProject" />
         <module name="EducationCertificate" />
         <module name="AssignTradesman" />
       </profile>

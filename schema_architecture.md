@@ -31,13 +31,6 @@ nous voulons connaitre la justification des différents choix d'architecture pou
           * exposition
           * infrastructure
       * kernel
-  * EndProject
-      * general
-          * application
-          * domain
-          * exposition
-          * infrastructure
-      * kernel
   * Member
       * general
           * application

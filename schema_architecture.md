@@ -88,3 +88,4 @@ chaque module était autonome et une "mini application"
 * C'est un mauvais choix car :
     * il y a des doublons de code
     * pas de dossier partagé entre les cas d'utilisation
+    * c'est une méthode qui n'a pas encore été vue en cours et qui sera apprise plus tard
